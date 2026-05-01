@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        body {
+            width: 250px;
+            margin: 0;
+            padding: 20px;
+            font-family: 'Inter', system-ui, sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: #f8fafc;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        h2 {
+            margin: 0;
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-align: center;
+            background: -webkit-linear-gradient(45deg, #60a5fa, #a78bfa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 15px;
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .label {
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        /* Sleek Glowing Toggle Switch */
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 44px;
+            height: 24px;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #475569;
+            transition: .3s;
+            border-radius: 24px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: .3s;
+            border-radius: 50%;
+        }
+
+        input:checked+.slider {
+            background-color: #3b82f6;
+            box-shadow: 0 0 10px #3b82f6aa;
+        }
+
+        input:checked+.slider:before {
+            transform: translateX(20px);
+        }
+    </style>
+</head>
+
+<body>
+    <h2>🛡️ Toxic Shield</h2>
+      <div class="card" style="flex-direction: column; align-items: flex-start; gap: 10px;">
+    <div style="display: flex; justify-content: space-between; width: 100%;">
+      <span class="label">Sensitivity Threshold</span>
+      <span id="sliderValue" style="font-weight: bold; color: #60a5fa;">75%</span>
+    </div>
+    <!-- The Slider! -->
+    <input type="range" id="sensitivitySlider" min="0" max="100" value="75" style="width: 100%; cursor: pointer;">
+    <span style="font-size: 0.75rem; color: #94a3b8;">Lower = stricter blocking. Higher = more relaxed.</span>
+  </div>
+
+  <div class="card" style="flex-direction: column; text-align: center; margin-top: 10px;">
+    <span class="label">Total Toxicity Blocked</span>
+    <h1 id="statsCounter" style="margin: 5px 0; font-size: 2.5rem; color: #ef4444;">0</h1>
+    <span style="font-size: 0.75rem; color: #94a3b8;">Comments neutralized</span>
+  </div>
+
+
+    <script src="popup.js"></script>
+</body>
+
+</html>
